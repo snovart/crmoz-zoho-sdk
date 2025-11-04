@@ -20,7 +20,6 @@ class SyncContactsCommand extends Command
         if (!Schema::hasTable('contacts')) {
             $this->warn('Table "contacts" not found. Creating via SDK...');
             Artisan::call('zoho-crm-sdk:sync-records', [
-                // IMPORTANT: pass the SDK model name exactly like other commands
                 'model' => 'ContactZoho',
             ]);
 

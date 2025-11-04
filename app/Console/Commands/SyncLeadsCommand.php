@@ -23,7 +23,7 @@ class SyncLeadsCommand extends Command
                 'model' => 'LeadZoho',
             ]);
 
-            // Display SDK command output
+            // Show SDK command output
             $this->line(Artisan::output());
             $this->info('Table "leads" is ready.');
         }
