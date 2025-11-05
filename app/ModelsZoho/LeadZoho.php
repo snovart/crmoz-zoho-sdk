@@ -3,6 +3,7 @@
 namespace App\ModelsZoho;
 
 use App\Models\Lead;
+use App\Models\LeadActivity;
 use ZohoCrmSDK\ModelsZoho\LeadZohoModel;
 
 class LeadZoho extends LeadZohoModel
@@ -19,7 +20,7 @@ class LeadZoho extends LeadZohoModel
             'created_by'    => 'Created_By',
         ],
     ];
-    
+
     protected $subforms = [
         // Key — Zoho API name of the subform
         'Lead_Activities' => [
@@ -33,7 +34,7 @@ class LeadZoho extends LeadZohoModel
                 'Note'          => 'note',
                 // 'Created_By' is a system field — should not be sent manually
             ],
-            // Lead_Activities has no modelDB — and that’s intentional
+            'modelDB'    => LeadActivity::class,
         ],
     ];
 }

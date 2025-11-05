@@ -35,7 +35,7 @@ class SyncLeadsCommand extends Command
 
         while (true) {
             $this->line("Fetching page {$page}...");
-            $collection = LeadZoho::all($page);
+            $collection = LeadZoho::all($page, true);
 
             // Stop if there are no more records
             if ($this->isEmptySdkCollection($collection)) {
@@ -44,7 +44,7 @@ class SyncLeadsCommand extends Command
             }
 
             // Save current page records into DB
-            $collection->saveToDB();
+            $collection->saveToDB(true);
 
             $count  = $this->countSdkCollection($collection);
             $total += $count;
